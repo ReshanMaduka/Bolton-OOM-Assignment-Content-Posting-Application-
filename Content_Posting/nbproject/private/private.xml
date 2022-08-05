@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Insight/Documents/NetBeansProjects/Content_Posting/src/com/edu/bolton/contentpostingapp/view/HomePage.java</file>
-            <file>file:/C:/Users/Insight/Documents/NetBeansProjects/Content_Posting/src/com/edu/bolton/contentpostingapp/view/Login.java</file>
-            <file>file:/C:/Users/Insight/Documents/NetBeansProjects/Content_Posting/src/com/edu/bolton/contentpostingapp/controller/UserController.java</file>
-            <file>file:/C:/Users/Insight/Documents/NetBeansProjects/Content_Posting/src/com/edu/bolton/contentpostingapp/controller/Singleton.java</file>
+            <file>file:/D:/Bolton/OOM/Bolton-OOM-Assignment-Content-Posting-Application-/Content_Posting/src/com/edu/bolton/contentpostingapp/my/view/CustomerDialog.java</file>
+            <file>file:/D:/Bolton/OOM/Bolton-OOM-Assignment-Content-Posting-Application-/Content_Posting/src/com/edu/bolton/contentpostingapp/my/view/Mall.java</file>
+            <file>file:/D:/Bolton/OOM/Bolton-OOM-Assignment-Content-Posting-Application-/Content_Posting/src/com/edu/bolton/contentpostingapp/my/view/AdminFrame.java</file>
+            <file>file:/D:/Bolton/OOM/Bolton-OOM-Assignment-Content-Posting-Application-/Content_Posting/src/com/edu/bolton/contentpostingapp/my/view/MallObserver.java</file>
+            <file>file:/D:/Bolton/OOM/Bolton-OOM-Assignment-Content-Posting-Application-/Content_Posting/src/com/edu/bolton/contentpostingapp/my/view/Client.java</file>
         </group>
     </open-files>
 </project-private>
