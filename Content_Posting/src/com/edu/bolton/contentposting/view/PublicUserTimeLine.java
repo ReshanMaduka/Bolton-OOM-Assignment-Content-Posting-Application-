@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Insight
+ * @author Reshan
  */
 public class PublicUserTimeLine extends javax.swing.JFrame implements Observer {
 
