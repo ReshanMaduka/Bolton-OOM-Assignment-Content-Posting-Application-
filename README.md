@@ -1,6 +1,7 @@
 # Bolton-OOM-Assignment-Content-Posting-Application
 
-In this application, there are two parts. A separate UI in the same application for the subscribing users to view the submitted content.
+## Overview
+In this application, there are two parts. A separate UI in the same application for the content-posting user to post their content and subscribing users to view the submitted content.
 
 ## Installation
 
