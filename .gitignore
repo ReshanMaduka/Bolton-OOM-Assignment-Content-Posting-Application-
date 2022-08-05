@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gradle/6.1/vcsMetadata-1/
+.idea/sonarlint/issuestore/4/
+.idea/sonarlint/issuestore/9/
+.idea/sonarlint/issuestore/c/
+.idea/sonarlint/issuestore/d/d/
+.idea/sonarlint/issuestore/f/0/
+.idea/sonarlint/issuestore/f/b/
+build/generated/
+build/tmp/
+src/main/resources/
+src/test/resources/
