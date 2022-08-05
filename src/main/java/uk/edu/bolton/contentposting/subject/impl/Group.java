@@ -24,13 +24,13 @@ public class Group implements Subject {
     }
 
     @Override
-    public void registerObserver(Observer observer) {
-        observers.add(observer);
+    public boolean registerObserver(Observer observer) {
+       return observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
+    public boolean removeObserver(Observer observer) {
+        return observers.remove(observer);
     }
 
     @Override

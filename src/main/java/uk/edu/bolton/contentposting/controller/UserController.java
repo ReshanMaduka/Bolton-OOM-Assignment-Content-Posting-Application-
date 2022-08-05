@@ -28,6 +28,13 @@ public class UserController {
 
     }
 
+
+    public ArrayList<PublicUser> getAllUsers(){
+
+       return publicUsers;
+
+    }
+
     /**
      * this method use to find public user by name
      * @param channelName
@@ -50,9 +57,10 @@ public class UserController {
      * this method use to subscribe a group
      * @param grp
      */
-    public void Subscribe(Group grp,PublicUser publicUser) {
-        grp.registerObserver(publicUser); //register as observer to group
+    public boolean subscribe(Group grp,PublicUser publicUser) {
         System.out.print("\n" + publicUser.getName() + " subscribes " + grp.getName() + "\n");
+       return grp.registerObserver(publicUser); //register as observer to group
+
     }
 
 
@@ -62,9 +70,10 @@ public class UserController {
      * @param grp
      */
 
-    public void unSubscribe(Group grp,PublicUser publicUser) {
-        grp.removeObserver(publicUser);  //unsubscribe from Group class
+    public boolean unSubscribe(Group grp,PublicUser publicUser) {
         System.out.print("\n" + publicUser.getName() + " unsubscribes " + grp.getName() + "\n");
+       return grp.removeObserver(publicUser);  //unsubscribe from Group class
+
     }
 
 

@@ -28,7 +28,7 @@ public class PublicUser extends javax.swing.JFrame implements Observer {
         initComponents();
     }
 
-    PublicUser(String name, String channelName) {
+   public PublicUser(String name, String channelName) {
         initComponents();
         dtmTable = (DefaultTableModel) tblPost.getModel();
         this.name = name;
@@ -182,16 +182,22 @@ public class PublicUser extends javax.swing.JFrame implements Observer {
 
     private void btnSubscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubscribeActionPerformed
         // TODO add your handling code here:
+
         PublicUser publicUser = UserController.getInstance().findPublicUserByName(this.name);
+
         Group group = GroupController.getInstance().findGroupByName(this.channelName);
-        if (isSubscribe == true) {
+
+        if (isSubscribe) {
+
             this.isSubscribe = false;
             btnSubscribe.setText("Subscribe");
             UserController.getInstance().unSubscribe(group,publicUser);
+
         } else {
+
             this.isSubscribe = true;
             btnSubscribe.setText("Unsubscribe");
-            UserController.getInstance().unSubscribe(group,publicUser);
+            UserController.getInstance().subscribe(group,publicUser);
 
         }
     }//GEN-LAST:event_btnSubscribeActionPerformed

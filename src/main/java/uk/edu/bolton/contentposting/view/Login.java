@@ -212,7 +212,7 @@ public class Login extends javax.swing.JFrame {
         
         Group group = GroupController.getInstance().findGroupByName(subscribeChannelNameTxt.getText());
         
-        UserController.getInstance().Subscribe(group,user);
+        UserController.getInstance().subscribe(group,user);
         user.setVisible(true);
         
     }//GEN-LAST:event_publicUserLoginBtnActionPerformed
