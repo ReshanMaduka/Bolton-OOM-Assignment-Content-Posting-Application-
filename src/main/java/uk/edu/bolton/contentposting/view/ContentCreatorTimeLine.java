@@ -7,8 +7,7 @@ package uk.edu.bolton.contentposting.view;
 
 
 import uk.edu.bolton.contentposting.controller.GroupController;
-import uk.edu.bolton.contentposting.controller.UserController;
-import uk.edu.bolton.contentposting.subject.impl.Group;
+import uk.edu.bolton.contentposting.modal.Post;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -162,8 +161,8 @@ public class ContentCreatorTimeLine extends javax.swing.JFrame {
     private void postBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postBtnActionPerformed
         // TODO add your handling code here:
 
-        Group group = GroupController.getInstance().findGroupByName(this.channelName);
-        group.newPost(postTxt.getText());
+        Post post = new Post(postTxt.getText());
+        GroupController.getInstance().newPost(post);
         Object[] rowData = {"Post :- " +postTxt.getText()};
         dtmTable.addRow(rowData);
     }//GEN-LAST:event_postBtnActionPerformed

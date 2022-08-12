@@ -1,16 +1,16 @@
 package uk.edu.bolton.contentposting.controller;
 
 
-import uk.edu.bolton.contentposting.subject.impl.Group;
 import uk.edu.bolton.contentposting.view.PublicUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserController {
 
-    public static UserController userController = new UserController();
+    public static final UserController userController = new UserController();
 
-    public static ArrayList<PublicUser> publicUsers = new ArrayList<>();
+    List<PublicUser> publicUsers = new ArrayList<>();
 
     public static UserController getInstance(){
         return userController;
@@ -29,7 +29,7 @@ public class UserController {
     }
 
 
-    public ArrayList<PublicUser> getAllUsers(){
+    public List<PublicUser> getAllUsers(){
 
        return publicUsers;
 
@@ -53,28 +53,6 @@ public class UserController {
 
     }
 
-    /**
-     * this method use to subscribe a group
-     * @param grp
-     */
-    public boolean subscribe(Group grp,PublicUser publicUser) {
-        System.out.print("\n" + publicUser.getName() + " subscribes " + grp.getName() + "\n");
-       return grp.registerObserver(publicUser); //register as observer to group
-
-    }
-
-
-
-    /**
-     * this method use to unSubscribe a group
-     * @param grp
-     */
-
-    public boolean unSubscribe(Group grp,PublicUser publicUser) {
-        System.out.print("\n" + publicUser.getName() + " unsubscribes " + grp.getName() + "\n");
-       return grp.removeObserver(publicUser);  //unsubscribe from Group class
-
-    }
 
 
 }

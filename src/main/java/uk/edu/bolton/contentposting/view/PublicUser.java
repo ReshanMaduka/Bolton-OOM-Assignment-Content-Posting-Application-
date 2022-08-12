@@ -8,8 +8,8 @@ package uk.edu.bolton.contentposting.view;
 
 import uk.edu.bolton.contentposting.controller.GroupController;
 import uk.edu.bolton.contentposting.controller.UserController;
+import uk.edu.bolton.contentposting.modal.Group;
 import uk.edu.bolton.contentposting.observer.Observer;
-import uk.edu.bolton.contentposting.subject.impl.Group;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -191,16 +191,16 @@ public class PublicUser extends javax.swing.JFrame implements Observer {
 
             this.isSubscribe = false;
             btnSubscribe.setText("Subscribe");
-            UserController.getInstance().unSubscribe(group,publicUser);
+            GroupController.getInstance().unSubscribe(group,publicUser);
 
         } else {
 
             this.isSubscribe = true;
             btnSubscribe.setText("Unsubscribe");
-            UserController.getInstance().subscribe(group,publicUser);
+            GroupController.getInstance().subscribe(group,publicUser);
 
         }
-    }//GEN-LAST:event_btnSubscribeActionPerformed
+    }
 
     /**
      * @param args the command line arguments

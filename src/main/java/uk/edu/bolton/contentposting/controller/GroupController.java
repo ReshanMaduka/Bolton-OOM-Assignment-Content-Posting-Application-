@@ -1,17 +1,24 @@
 package uk.edu.bolton.contentposting.controller;
 
-import uk.edu.bolton.contentposting.subject.impl.Group;
+import uk.edu.bolton.contentposting.modal.Group;
+import uk.edu.bolton.contentposting.modal.Post;
+import uk.edu.bolton.contentposting.observer.Observer;
+import uk.edu.bolton.contentposting.subject.Subject;
+import uk.edu.bolton.contentposting.view.PublicUser;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class GroupController {
+public class GroupController implements Subject {
 
-    public static GroupController userController = new GroupController();
+    public static final GroupController groupController = new GroupController();
 
-    public static ArrayList<Group> groups = new ArrayList<>();
+    List<Group> groups = new ArrayList<>();
+
+    private static final List<Observer> observers = new ArrayList<>();
 
     public static GroupController getInstance(){
-        return userController;
+        return groupController;
     }
 
     /**
@@ -41,6 +48,54 @@ public class GroupController {
 
         return null;
 
+    }
+
+    /**
+     * add new post
+     * @param post
+     */
+
+    public void newPost(Post post) {
+        notifyObserver(post.getName());
+    }
+
+
+    /**
+     * this method use to subscribe a group
+     * @param grp
+     */
+    public boolean subscribe(Group grp, PublicUser publicUser) {
+        System.out.print("\n" + publicUser.getName() + " subscribes " + grp.getName() + "\n");
+        return registerObserver(publicUser); //register as observer to group
+
+    }
+
+    /**
+     * this method use to unSubscribe a group
+     * @param grp
+     */
+
+    public boolean unSubscribe(Group grp,PublicUser publicUser) {
+        System.out.print("\n" + publicUser.getName() + " unsubscribes " + grp.getName() + "\n");
+        return removeObserver(publicUser);  //unsubscribe from Group class
+
+    }
+
+    @Override
+    public boolean registerObserver(Observer observer) {
+        return observers.add(observer);
+    }
+
+    @Override
+    public boolean removeObserver(Observer observer) {
+        return observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObserver(String post) {
+        for (Observer observer : observers) {
+            observer.updatePost(post);
+        }
     }
 
 }

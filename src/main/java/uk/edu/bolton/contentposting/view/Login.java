@@ -8,7 +8,7 @@ package uk.edu.bolton.contentposting.view;
 
 import uk.edu.bolton.contentposting.controller.GroupController;
 import uk.edu.bolton.contentposting.controller.UserController;
-import uk.edu.bolton.contentposting.subject.impl.Group;
+import uk.edu.bolton.contentposting.modal.Group;
 
 
 public class Login extends javax.swing.JFrame {
@@ -211,8 +211,8 @@ public class Login extends javax.swing.JFrame {
         UserController.getInstance().createNewUser(user);
         
         Group group = GroupController.getInstance().findGroupByName(subscribeChannelNameTxt.getText());
-        
-        UserController.getInstance().subscribe(group,user);
+
+        GroupController.getInstance().subscribe(group,user);
         user.setVisible(true);
         
     }//GEN-LAST:event_publicUserLoginBtnActionPerformed
@@ -221,7 +221,7 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         ContentCreatorTimeLine contentCreatorTimeLine = new ContentCreatorTimeLine(channelNameTxt.getText());
         contentCreatorTimeLine.setVisible(true);
-        Group grp = new Group(channelNameTxt.getText());
+        Group grp = new Group("",channelNameTxt.getText());
         GroupController.getInstance().createNewGroup(grp);
         
     }//GEN-LAST:event_channelLoginBtnActionPerformed
