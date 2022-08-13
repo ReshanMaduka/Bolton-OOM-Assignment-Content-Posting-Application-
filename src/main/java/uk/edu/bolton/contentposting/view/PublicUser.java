@@ -6,12 +6,15 @@
 package uk.edu.bolton.contentposting.view;
 
 
-import uk.edu.bolton.contentposting.controller.GroupController;
+import uk.edu.bolton.contentposting.controller.ChannelController;
 import uk.edu.bolton.contentposting.controller.UserController;
-import uk.edu.bolton.contentposting.modal.Group;
+import uk.edu.bolton.contentposting.exception.UserCustomException;
+import uk.edu.bolton.contentposting.modal.Channel;
 import uk.edu.bolton.contentposting.observer.Observer;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 
 
 public class PublicUser extends javax.swing.JFrame implements Observer {
@@ -26,6 +29,7 @@ public class PublicUser extends javax.swing.JFrame implements Observer {
 
     public PublicUser() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
    public PublicUser(String name, String channelName) {
@@ -183,23 +187,35 @@ public class PublicUser extends javax.swing.JFrame implements Observer {
     private void btnSubscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubscribeActionPerformed
         // TODO add your handling code here:
 
-        PublicUser publicUser = UserController.getInstance().findPublicUserByName(this.name);
+        try {
 
-        Group group = GroupController.getInstance().findGroupByName(this.channelName);
+            PublicUser publicUser = UserController.getInstance().findPublicUserByName(this.name);
 
-        if (isSubscribe) {
+            Channel channel = ChannelController.getInstance().findGroupByName(this.channelName);
 
-            this.isSubscribe = false;
-            btnSubscribe.setText("Subscribe");
-            GroupController.getInstance().unSubscribe(group,publicUser);
+            if (isSubscribe) {
 
-        } else {
+                this.isSubscribe = false;
+                btnSubscribe.setText("Subscribe");
+                ChannelController.getInstance().unSubscribe(publicUser);
 
-            this.isSubscribe = true;
-            btnSubscribe.setText("Unsubscribe");
-            GroupController.getInstance().subscribe(group,publicUser);
+            } else {
 
+                this.isSubscribe = true;
+                btnSubscribe.setText("Unsubscribe");
+                ChannelController.getInstance().subscribe(publicUser);
+
+            }
+
+        } catch (UserCustomException u) {
+            warningAlert(u.getMessage());
+            throw u;
+        }catch (Exception e){
+            warningAlert(e.getMessage());
+            throw e;
         }
+
+
     }
 
     /**
@@ -237,6 +253,14 @@ public class PublicUser extends javax.swing.JFrame implements Observer {
         });
     }
 
+    public static void warningAlert(String text) {
+        Toolkit.getDefaultToolkit().beep();
+        JOptionPane optionPane = new JOptionPane(text, JOptionPane.WARNING_MESSAGE);
+        JDialog dialog = optionPane.createDialog("Warning!");
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnSubscribe;
     private javax.swing.JLabel channelNameLbl;
@@ -252,8 +276,14 @@ public class PublicUser extends javax.swing.JFrame implements Observer {
     @Override
     public void updatePost(String post) {
 
-        Object[] rowData = {"Post :- " + post};
-        dtmTable.addRow(rowData);
+        try {
+            Object[] rowData = {"Post :- " + post};
+            dtmTable.addRow(rowData);
+        }catch (Exception e){
+            warningAlert(e.getMessage());
+            throw e;
+        }
+
 
     }
 

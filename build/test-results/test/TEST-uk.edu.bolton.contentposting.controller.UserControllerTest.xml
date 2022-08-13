@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="uk.edu.bolton.contentposting.controller.UserControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-08-05T16:51:30" hostname="DESKTOP-229SFNB" time="0.358">
+<testsuite name="uk.edu.bolton.contentposting.controller.UserControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-08-13T05:47:14" hostname="DESKTOP-229SFNB" time="0.438">
   <properties/>
-  <testcase name="unSubscribe()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.277"/>
-  <testcase name="findPublicUserByName()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.023"/>
-  <testcase name="getAllUsers()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.021"/>
-  <testcase name="createNewUser()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.018"/>
-  <testcase name="subscribe()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.016"/>
-  <system-out><![CDATA[
-test user subscribes test channel
-
-test user unsubscribes test channel
-
-test user subscribes test channel
-]]></system-out>
+  <testcase name="findPublicUserByName()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.343"/>
+  <testcase name="getAllUsers()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.063"/>
+  <testcase name="createNewUser()" classname="uk.edu.bolton.contentposting.controller.UserControllerTest" time="0.026"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

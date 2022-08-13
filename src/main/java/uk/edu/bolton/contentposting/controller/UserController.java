@@ -12,47 +12,66 @@ public class UserController {
 
     List<PublicUser> publicUsers = new ArrayList<>();
 
-    public static UserController getInstance(){
+    public static UserController getInstance() {
         return userController;
     }
 
 
     /**
      * this method use to create a new user
+     *
      * @param group
      */
 
-    public void createNewUser(PublicUser group){
+    public void createNewUser(PublicUser group) {
+        try {
+            publicUsers.add(group);
+        } catch (Exception e) {
+            throw e;
+        }
 
-        publicUsers.add(group);
 
     }
 
-
-    public List<PublicUser> getAllUsers(){
-
-       return publicUsers;
+    /**
+     * this method use to get all users
+     * @return
+     */
+    public List<PublicUser> getAllUsers() {
+        try {
+            return publicUsers;
+        } catch (Exception e) {
+            throw e;
+        }
 
     }
 
     /**
      * this method use to find public user by name
+     *
      * @param channelName
      * @return
      */
 
-    public PublicUser findPublicUserByName(String channelName){
+    public PublicUser findPublicUserByName(String channelName) {
 
-        for (PublicUser publicUser : publicUsers) {
-            if(publicUser.getName().equals(channelName)){
-                return publicUser;
+        try {
+
+            for (PublicUser publicUser : publicUsers) {
+                if (publicUser.getName().equals(channelName)) {
+                    return publicUser;
+                }
             }
+
+            return null;
+
+        } catch (Exception e) {
+            throw e;
         }
 
-        return null;
+
 
     }
-
 
 
 }
